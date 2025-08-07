@@ -30,8 +30,8 @@ public class ProductBacket {
     private double calculateTotalCost() {
         double sum = 0;
         for (Product p : products)
-            sum += p instanceof DiscountProduct ? ((DiscountProduct)p).price * (1 - ((DiscountProduct)p).price/100) :
-                    p instanceof FixPriceProduct ? ((FixPriceProduct)p).fixesPrice : p.price;
+            sum += p instanceof DiscountProduct ? ((DiscountProduct)p).fixedPrice * (1 - ((DiscountProduct)p).fixedPrice/100) :
+                    p instanceof FixPriceProduct ? ((FixPriceProduct)p).fixedPrice : p.fixedPrice;
         return sum;
     }
 }

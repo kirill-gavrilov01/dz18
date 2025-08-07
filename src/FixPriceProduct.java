@@ -1,5 +1,5 @@
-class FixPriceProduct extends Product {
-    private double fixedPrice;
+abstract class FixPriceProduct extends Product {
+    double fixedPrice;
 
     public FixPriceProduct(String name, double fixedPrice) {
         super(name, fixedPrice); // Используем цену как фиксированную
