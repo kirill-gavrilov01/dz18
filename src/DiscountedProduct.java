@@ -1,19 +1,18 @@
+// Класс товара со скидкой
+class DiscountProduct extends Product {
+    private double discountPercent; // Процент скидки
 
-abstract class DiscountProduct extends Product {
-    private double discountPercentage;
-
-
-    public DiscountProduct(String name, double price, double discountPercentage) {
-        super(name, price);
-        this.discountPercentage = discountPercentage;
+    public DiscountProduct(String isSpecial, double basePrice, double discountPercent) {
+        super(isSpecial, basePrice);
+        this.discountPercent = discountPercent;
     }
-
-    public boolean isSpecial() { return true; }
 
     @Override
-    public String toString() {
-        double discountedPrice = fixedPrice * (1 - discountPercentage / 100);
-        return name + ": " + discountedPrice + " (" + discountPercentage + "%)";
+    public double calculateFinalPrice() {
+        return basePrice * (1 - discountPercent / 100); // Рассчитываем цену с учетом скидки
     }
 }
+
+
+
 

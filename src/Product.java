@@ -1,40 +1,32 @@
+// Общий интерфейс или абстрактный класс для всех продуктов
+abstract class Product {
+    protected String isSpecial; // признак специального товара
+    protected double basePrice;  // исходная цена товара
 
-public abstract class Product {
-    protected int discountPercentage;
-    protected double fixedPrice;
-    protected String name;
-
-    public Product(String name, double fixedPrice, int discountPercentage) {
-        this.name = name;
-        this.fixedPrice = fixedPrice;
-        this.discountPercentage = discountPercentage;
+    public Product(String isSpecial, double basePrice) {
+        this.isSpecial = isSpecial;
+        this.basePrice = basePrice;
     }
 
-    public Product(String name, double price, double fixedPrice, int discountPercentage) {
-        this.fixedPrice = fixedPrice;
-        this.discountPercentage = discountPercentage;
+
+    // Определение, является ли товар специальным
+    public boolean isSpecial() {
+        return Boolean.parseBoolean(isSpecial);
     }
 
-    public Product(double fixedPrice, int discountPercentage) {
+    // Абстрактный метод для расчета итоговой цены продукта
+    public abstract double calculateFinalPrice();
 
-        this.fixedPrice = fixedPrice;
-        this.discountPercentage = discountPercentage;
+    // Переопределяемый метод toString()
+    @Override
+    public String toString() {
+        return "Цена: " + calculateFinalPrice() + ", Специальный: " + isSpecial;
     }
-
-    public Product(String name, double price) {
-    }
-
-    public Product() {
-
-    }
-
-    public abstract double getPrice(); // теперь метод абстрактный
-
-    public abstract boolean isSpecial();
 }
 
 
 
-        
+
+
 
 

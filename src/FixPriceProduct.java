@@ -1,17 +1,11 @@
-abstract class FixPriceProduct extends Product {
-    double fixedPrice;
-
-    public FixPriceProduct(String name, double fixedPrice) {
-        super(name, fixedPrice); // Используем цену как фиксированную
-        this.fixedPrice = fixedPrice;
+// Класс обычного товара с фиксированной ценой
+class FixPriceProduct extends Product {
+    public FixPriceProduct(String isSpecial, double basePrice) {
+        super(isSpecial, basePrice);
     }
 
     @Override
-    public boolean isSpecial() { return true; }
-
-    @Override
-    public String toString() {
-        return name + ": Фиксированная цена " + fixedPrice;
+    public double calculateFinalPrice() {
+        return basePrice; // Просто возвращаем фиксированную цену
     }
 }
-

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class ProductBacket {
     ArrayList<Product> products = new ArrayList<>();
 
@@ -10,7 +11,7 @@ public class ProductBacket {
     public void printBasket() {
         System.out.println("Корзина:");
         for (Product p : products) {
-            System.out.println(p.toString());
+            System.out.println(p.toString()); // Выводим товары
         }
 
         int specialCount = countSpecialProducts();
@@ -23,15 +24,15 @@ public class ProductBacket {
     private int countSpecialProducts() {
         int count = 0;
         for (Product p : products)
-            if (p.isSpecial()) count++;
+            if (p.isSpecial()) count++; // Здесь no instanceof!
         return count;
     }
 
     private double calculateTotalCost() {
         double sum = 0;
         for (Product p : products)
-            sum += p instanceof DiscountProduct ? ((DiscountProduct)p).fixedPrice * (1 - ((DiscountProduct)p).fixedPrice/100) :
-                    p instanceof FixPriceProduct ? ((FixPriceProduct)p).fixedPrice : p.fixedPrice;
+            sum += p.calculateFinalPrice(); // Используем метод расчета цены конкретного продукта
         return sum;
     }
 }
+
