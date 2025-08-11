@@ -1,6 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        ProductBacket basket = new ProductBacket();
 
+
+
+        // Добавление разных типов товаров
+        basket.add(new SimpleProduct("Хлеб", 50));
+        basket.add(new DiscountProduct("Молоко", 100, 10));     // Молоко со скидкой 10%
+        basket.add(new FixPriceProduct("Колбаса", 200));       // Колбаса с фиксированной ценой
+
+        // Печать корзины
+        basket.printBasket();
     }
 }
