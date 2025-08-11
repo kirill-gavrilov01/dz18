@@ -1,3 +1,4 @@
+
 // Общий интерфейс или абстрактный класс для всех продуктов
 abstract class Product {
     protected String isSpecial; // признак специального товара
@@ -23,10 +24,6 @@ abstract class Product {
         return "Цена: " + calculateFinalPrice() + ", Специальный: " + isSpecial;
     }
 }
-
-
-
-
 
 
 
